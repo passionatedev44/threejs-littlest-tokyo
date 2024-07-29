@@ -4,12 +4,8 @@ This project demonstrates a 3D scene using Three.js, a popular JavaScript librar
 
 <img width="1324" alt="Screenshot 2024-07-29 at 2 59 02 PM" src="https://github.com/user-attachments/assets/745c5bce-5c02-4dbd-80fc-d3e4ebdc8814">
 
-## Table of Contents
-- Getting Started
-- Project Structure
-- Dependencies
-- Usage
-- License
+## Live Demo:
+https://aarxa-3d.netlify.app
 
 ## Getting Started
 To get a local copy of this project up and running, follow these simple steps.
@@ -68,6 +64,10 @@ npm install -g http-server
 2. Run the server in the project directory:
 ```bash
 http-server
+```
 
 3. Open your web browser and go to http://localhost:8080.
 
+## License
+
+Distributed under the MIT License.
