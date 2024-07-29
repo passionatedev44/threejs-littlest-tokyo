@@ -1,6 +1,16 @@
 # Three.js Project
 
-This project demonstrates a 3D scene using Three.js, a popular JavaScript library for creating 3D graphics in the web browser. The scene includes a 3D model and allows for user interaction through various controls.
+I always say that I like combining coding with art, this has been a project closest to that!
+
+This project is a web-based 3D visualization application built using Three.js, a powerful JavaScript library for creating 3D graphics. The application showcases an interactive 3D scene featuring a detailed GLTF model of Littlest Tokyo, which users can explore using intuitive orbit controls. The project demonstrates the integration of advanced Three.js features, including the use of Draco compression for efficient 3D model loading, WebAssembly for performance optimization, and various Three.js loaders and controls to enhance the user experience.
+
+Key features of the project include:
+- **Interactive 3D Model:** The scene includes a high-quality GLTF model of Littlest Tokyo, allowing users to explore the model with smooth, responsive controls.
+- **Orbit Controls:** Users can interact with the 3D scene using mouse or touch input to rotate, zoom, and pan around the model, providing an immersive viewing experience.
+- **Draco Compression:** The project leverages Draco compression to reduce the size of 3D models, ensuring faster loading times and efficient performance, especially for large models.
+- **WebAssembly Integration:** By utilizing WebAssembly, the project achieves high performance in decoding Draco-compressed models, demonstrating the potential of combining JavaScript and WebAssembly in web applications.
+- **Modular and Extensible:** The project is structured in a modular way, making it easy to extend with additional features, models, or controls as needed.
+
 
 <img width="1324" alt="Screenshot 2024-07-29 at 2 59 02 PM" src="https://github.com/user-attachments/assets/745c5bce-5c02-4dbd-80fc-d3e4ebdc8814">
 
