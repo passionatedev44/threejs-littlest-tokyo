@@ -1,0 +1,7 @@
+{
+    "short_name":"Littlest Tokyo",
+    "name":"Littlest Tokyo",
+    "start_url":"index.html",
+    "display":"fullscreen",
+    "orientation":"landscape"
+}

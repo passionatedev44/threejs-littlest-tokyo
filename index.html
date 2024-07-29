@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- https://threejs.org/examples/webgl_animation_keyframes.html -->
+<html>
+  <head>
+    <title>Littlest Tokyo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <style>
+      body {
+        background-color: #bfe3dd;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="module">
+      import * as THREE from './three.module.js';
+      import { OrbitControls } from './OrbitControls.js';
+      import { GLTFLoader } from './GLTFLoader.js';
+      import { DRACOLoader } from './DRACOLoader.js';
+      let mixer;
+      const clock = new THREE.Clock();
+      const container = document.getElementById( 'container' );
+      const renderer = new THREE.WebGLRenderer( { antialias: true } );
+      renderer.setPixelRatio( window.devicePixelRatio );
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      container.appendChild( renderer.domElement );
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color( 0xbfe3dd );
+      const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.01, 100 );
+      camera.position.set( 5, 2, 8 );
+      const controls = new OrbitControls( camera, renderer.domElement );
+      controls.target.set( 0, 0.5, 0 );
+      controls.update();
+      scene.add( new THREE.HemisphereLight( 0xffffff, 0x000000, 0.4 ) );
+      const dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+      dirLight.position.set( 5, 2, 8 );
+      scene.add( dirLight );
+      const dracoLoader = new DRACOLoader();
+      dracoLoader.setDecoderPath( './' );
+      const loader = new GLTFLoader();
+      loader.setDRACOLoader( dracoLoader );
+      loader.load( 'LittlestTokyo.glb', function ( gltf ) {
+        const model = gltf.scene;
+        model.position.set( 1, 1, 0 );
+        model.scale.set( 0.01, 0.01, 0.01 );
+        scene.add( model );
+        mixer = new THREE.AnimationMixer( model );
+        mixer.clipAction( gltf.animations[ 0 ] ).play();
+        animate();
+      }, undefined, function ( e ) {
+        console.error( e );
+      } );
+      function animate() {
+        requestAnimationFrame( animate );
+        const delta = clock.getDelta();
+        mixer.update( delta );
+        renderer.render( scene, camera );
+      }
+    </script>
+  </body>
+</html>
